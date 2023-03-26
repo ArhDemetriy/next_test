@@ -11,15 +11,6 @@ type IPathsParams = {
     id: string
 }
 
-// export const getStaticPaths: GetStaticPaths<IPathsParams> = async () => {
-//     const response = await fetch('https://jsonplaceholder.typicode.com/users')
-//     const users: IUserProps[] = await response.json()
-//     return {
-//         fallback: true,
-//         paths: users.map(params => ({ params: { id: params.id.toString() } })),
-//     }
-// }
-
 export const getStaticProps: GetStaticProps<CatalogProps, IPathsParams> = async ({ params }) => {
     const response = await getProducts()
     const props: CatalogProps = {
