@@ -1,11 +1,14 @@
 import React from 'react'
 import type { CardProps } from "./types";
-import styles from './Card.module.scss'
+import s from './Card.module.scss'
+import Image from 'next/image';
 
-export function Card(props: CardProps) {
+const ImageAlt = 'фото товара'
+
+export function Card(p: CardProps) {
     return (
-        <div className={styles['Card']}>
-            {props.children}
+        <div className={s['Card']}>
+            <Image src={p.image} alt={ImageAlt} className={s['CardImage']} />
         </div>
     )
 }

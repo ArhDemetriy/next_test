@@ -1,5 +1,7 @@
-import { PropsWithChildren } from "react"
-
-export interface CardProps extends PropsWithChildren{
+export interface CardProps {
     className?: string
+    image: string
+    name: string
+    brand: string
+    link: string
 }
