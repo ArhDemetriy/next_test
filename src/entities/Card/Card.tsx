@@ -1,12 +1,14 @@
 import React from 'react'
 import type { CardProps } from "./types";
 import s from './Card.module.scss'
+import { Tag } from '@/src/shared/ui/Tag';
 
 const ImageAlt = 'фото товара'
 
 export function Card(p: CardProps) {
     return (
         <div className={s['Card']}>
+            {p.tag && <Tag tag={p.tag} className={s['CardTag']} />}
             <img
                 className={s['CardImage']}
                 src={p.image}
@@ -18,11 +20,6 @@ export function Card(p: CardProps) {
             <div className={s['CardBrand']}>
                 {p.brand}
             </div>
-            {!!p.tag?.length && (
-                <div className={s['CardTag']}>
-                    {p.tag}
-                </div>
-            )}
         </div>
     )
 }

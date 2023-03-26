@@ -21,7 +21,12 @@
         height: 202px;
         border-radius: 7px;
     }
+
     &Brand{
         @include font-text-2;
+    }
+
+    &Tag{
+        position: absolute;
     }
 }
