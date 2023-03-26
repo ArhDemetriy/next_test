@@ -1,1 +1,2 @@
-export { getProducts } from './getProducts'
+export { getAllBrands, getAllProducts } from './getProducts'
+export type { TBrand } from './types'

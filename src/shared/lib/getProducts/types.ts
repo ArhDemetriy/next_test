@@ -1,8 +1,3 @@
-export interface getProductsParam{
-    pageIndex: number
-    maxProductsOnPage: number
-}
-
 interface TProduct {
     /** id бренда */
     albumId: number
@@ -16,7 +11,7 @@ interface TProduct {
     thumbnailUrl: string
 }
 
-interface TBrand {
+export interface TBrand {
     /** id бренда */
     id: number
     /** название бренда */
