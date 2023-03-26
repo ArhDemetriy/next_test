@@ -1,4 +1,4 @@
-import { PageTemplate } from '@/src/widgets/PageTamplate'
+import { PageTemplate } from '@/src/widgets/PageTemplate'
 import { Card } from '@/src/entities/Card'
 
 export default function Home() {
