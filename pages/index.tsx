@@ -1,7 +1,36 @@
 import { PageTemplate } from '@/src/widgets/PageTemplate'
 import { Catalog } from '@/src/widgets/Catalog'
+import { GetStaticProps, GetStaticPaths } from "next/types"
+import { getAllProducts } from '@/src/shared/lib/getProducts/getProducts'
 
-export default function Home() {
+interface IUserProps {
+    name: string
+    id: number
+}
+
+type IPathsParams = {
+        id: string
+    }
+
+export const getStaticPaths: GetStaticPaths<IPathsParams> = async () => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    const users: IUserProps[] = await response.json()
+    return {
+        fallback: true,
+        paths: users.map(params => ({ params: { id: params.id.toString() } })),
+    }
+}
+
+export const getStaticProps: GetStaticProps<IUserProps, IPathsParams> = async ({ params }) => {
+    console.log('getStaticProps:', params)
+    const response = await getAllProducts()
+    const props = await response.json()
+    return { props }
+}
+
+export default function Index(p: IUserProps) {
+    console.log('Index', p)
+
 return (
     <PageTemplate>
         <Catalog
