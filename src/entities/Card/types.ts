@@ -4,4 +4,5 @@ export interface CardProps {
     name: string
     brand: string
     link: string
+    tag?: 'top' | 'bonus'
 }
