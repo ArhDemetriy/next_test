@@ -1,11 +1,16 @@
 import React from 'react'
 import type { CatalogProps } from "./types";
-import styles from './Catalog.module.scss'
+import s from './Catalog.module.scss'
+import { Card } from '@/src/entities/Card';
 
-export function Catalog(props: CatalogProps) {
+export function Catalog(p: CatalogProps) {
     return (
-        <div className={styles['Catalog']}>
-            {props.children}
+        <div className={s['Catalog']}>
+            {p.products.map(product => (
+                <Card
+                    {...product}
+                    key={product.id}
+                />))}
         </div>
     )
 }
